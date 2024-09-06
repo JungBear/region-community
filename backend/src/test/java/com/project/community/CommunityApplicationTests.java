@@ -10,6 +10,7 @@ class CommunityApplicationTests {
 
 	@Test
 	void contextLoads() {
+		
 		assert(true);
 	}
 
