@@ -1,0 +1,31 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+      nodejs: 20
+  pre_build:
+    commands:
+      - echo Installing source NPM dependencies...
+      - cd frontend
+      - npm install
+      - cd ..
+  build:
+    commands:
+      - echo Build started on `date`
+      - cd backend
+      - ./gradlew build
+      - cd ../frontend
+      - npm run build
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - backend/build/libs/*.jar
+    - frontend/build/**/*
+    - scripts/**/*
+    - appspec.yml
+  discard-paths: no

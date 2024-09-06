@@ -1,0 +1,16 @@
+version: 0.0
+os: linux
+files:
+  - source: backend/build/libs/*.jar
+    destination: /home/ec2-user/app/backend
+  - source: frontend/build
+    destination: /home/ec2-user/app/frontend
+hooks:
+  ApplicationStop:
+    - location: scripts/stop_application.sh
+      timeout: 300
+      runas: ec2-user
+  ApplicationStart:
+    - location: scripts/start_application.sh
+      timeout: 300
+      runas: ec2-user
