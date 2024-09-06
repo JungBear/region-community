@@ -2,15 +2,14 @@ spring:
   datasource:
     hikari:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      jdbc-url: jdbc:mysql://localhost:3306/area_comm?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+      jdbc-url: jdbc:mysql://localhost:3306/jpa?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
       username: my_user
       password: 1111
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop  # 테스트 후 데이터베이스를 초기화합니다
     show-sql: true
-    open-in-view: false  # spring.jpa.open-in-view 설정 명시
     properties:
       hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
         format_sql: true
-        dialect: org.hibernate.dialect.MySQLDialect  # MySQL8Dialect 대신 MySQLDialect 사용
