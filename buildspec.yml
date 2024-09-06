@@ -15,6 +15,7 @@ phases:
     commands:
       - echo Build started on `date`
       - cd backend
+      - chmod +x ./gradlew
       - ./gradlew build
       - cd ../frontend
       - npm run build
