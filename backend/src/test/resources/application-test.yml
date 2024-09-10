@@ -4,7 +4,7 @@ spring:
       driver-class-name: com.mysql.cj.jdbc.Driver
       jdbc-url: jdbc:mysql://localhost:3306/jpa?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
       username: my_user
-      password: 1111
+      password: bora931105
   jpa:
     hibernate:
       ddl-auto: create-drop  # 테스트 후 데이터베이스를 초기화합니다
