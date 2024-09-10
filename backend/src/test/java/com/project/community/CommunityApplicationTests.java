@@ -8,16 +8,26 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ActiveProfiles;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
+import javax.sql.DataSource;
+
+@SpringBootTest
+@ActiveProfiles("test")
 class CommunityApplicationTests {
 
 	 @Autowired
     private ApplicationContext applicationContext;
+	@Autowired
+	private DataSource dataSource;
 
 	@Test
 	void contextLoads() {
-		
 		assertNotNull(applicationContext);
+		assertNotNull(dataSource);
+	}
+
+	@Test
+	void dataSourceConnectionTest() throws Exception {
+		assertNotNull(dataSource.getConnection());
 	}
 
 }
